@@ -13,7 +13,6 @@ public class Nutrients {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     private int energy;
 
     @Column(columnDefinition="Decimal(3,2)")
@@ -35,6 +34,11 @@ public class Nutrients {
     private double fiber;
 
     private String nutritionGrades;
+
+    @OneToOne
+    @JoinColumn(name="product_id")
+    private Product product;
+
 }
 
 
