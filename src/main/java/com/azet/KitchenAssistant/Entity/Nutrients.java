@@ -15,22 +15,22 @@ public class Nutrients {
 
     private int energy;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double fat;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double saturatedFat;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double carbohydrates;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double sugars;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double proteins;
 
-    @Column(columnDefinition="Decimal(3,2)")
+    @Column(columnDefinition="Decimal(4,2)")
     private double fiber;
 
     private String nutritionGrades;
