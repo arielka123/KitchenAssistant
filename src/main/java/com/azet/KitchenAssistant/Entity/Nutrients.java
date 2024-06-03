@@ -1,28 +1,44 @@
 package com.azet.KitchenAssistant.Entity;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name="nutrients")
 public class Nutrients {
 
     //data for 100g of products
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int kcalEnergy;
 
-    private int gFat;
+    private int energy;
 
-    private int gSaturatedFat;
+    @Column(columnDefinition="Decimal(3,2)")
+    private double fat;
 
-    private int gCarbohydrates;
+    @Column(columnDefinition="Decimal(3,2)")
+    private double saturatedFat;
 
-    private int gProtein;
+    @Column(columnDefinition="Decimal(3,2)")
+    private double carbohydrates;
 
-    private int gFiber;
+    @Column(columnDefinition="Decimal(3,2)")
+    private double sugars;
+
+    @Column(columnDefinition="Decimal(3,2)")
+    private double proteins;
+
+    @Column(columnDefinition="Decimal(3,2)")
+    private double fiber;
 
     private String nutritionGrades;
 }
 
 
 //TODO
-//https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriments,nutrition_grades
+//https://pl.openfoodfacts.org/api/v0/product/4056489180968?fields=product_name,nutriscore_data,nutriments,nutrition_grades
 
-//https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-off-api/#authentication
+//https://pl.openfoodfacts.org/api/v0/product/4056489180968.json
