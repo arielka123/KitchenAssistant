@@ -1,10 +1,14 @@
 package com.azet.KitchenAssistant.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name="nutrients")
+@Getter
+@Setter
 public class Nutrients {
 
     //data for 100g of products
@@ -35,8 +39,9 @@ public class Nutrients {
 
     private String nutritionGrades;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="product_id")
+    @JsonIgnore
     private Product product;
 
 }
