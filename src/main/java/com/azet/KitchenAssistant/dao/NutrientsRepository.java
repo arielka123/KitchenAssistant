@@ -18,5 +18,4 @@ public interface NutrientsRepository extends JpaRepository<Nutrients ,Integer> {
     Page<Nutrients> findAll(Pageable page);
 
     Optional<Nutrients> findByProduct_Id(Integer id);
-
 }

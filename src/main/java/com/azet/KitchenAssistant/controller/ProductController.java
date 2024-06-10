@@ -71,6 +71,10 @@ class ProductController {
     ResponseEntity<Product> addNewProduct(@RequestBody @Valid Product newProduct){
 
         Product result =productRepository.save(newProduct);
+        Nutrients nutrients = newProduct.getNutrients();
+        nutrients.setProduct(result);
+
+        nutrientsRepository.save(nutrients);
 
         logger.info("saved new Product");
         return ResponseEntity.created(URI.create("/" + result.getId())).body(newProduct);
@@ -86,12 +90,7 @@ class ProductController {
         }
 
         productToEdit.setId(id);
-
-        Nutrients nutrients = productToEdit.getNutrients();
-        nutrients.setProduct(productToEdit);
-
-        nutrientsRepository.save(nutrients);
-        productRepository.save(productToEdit);
+        Product result =productRepository.save(productToEdit);
 
         return ResponseEntity.noContent().build();
     }
