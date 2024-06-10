@@ -48,16 +48,19 @@ class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> editCategory(@PathVariable int id ,@RequestBody @Valid Category updatedCategory){
+    ResponseEntity<?> editCategory(@PathVariable int id ,@RequestBody @Valid Category categoryToEdit){
         logger.info("updated category id: " + id);
 
         if(!categoryRepository.existsById(id)){
             return ResponseEntity.notFound().build();
         }
 
-        updatedCategory.setId(id);
-        categoryRepository.save(updatedCategory);
+        categoryToEdit.setId(id);
+        categoryRepository.save(categoryToEdit);
 
         return ResponseEntity.noContent().build();
     }
+
+    //todo searching by name
+    //todo delete category
 }

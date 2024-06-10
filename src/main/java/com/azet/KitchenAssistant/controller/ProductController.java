@@ -1,6 +1,8 @@
 package com.azet.KitchenAssistant.controller;
 
+import com.azet.KitchenAssistant.Entity.Nutrients;
 import com.azet.KitchenAssistant.Entity.Product;
+import com.azet.KitchenAssistant.dao.NutrientsRepository;
 import com.azet.KitchenAssistant.dao.ProductRepository;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -12,24 +14,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/products")
 class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
-    public final ProductRepository productRepository;
+    private final ProductRepository productRepository;
+    private final NutrientsRepository nutrientsRepository;
 
-    ProductController(final ProductRepository productRepository) {
+    ProductController(final ProductRepository productRepository, NutrientsRepository nutrientsRepository) {
         this.productRepository = productRepository;
-    }
-
-    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Product> addNewProduct(@RequestBody @Valid Product newProduct){
-
-        Product result =productRepository.save(newProduct);
-        logger.info("saved new Product");
-        return ResponseEntity.created(URI.create("/" + result.getId())).body(newProduct);
+        this.nutrientsRepository = nutrientsRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,4 +58,41 @@ class ProductController {
         //http://localhost:8080/products?search=ml&page=0&size=10
     }
 
+    @RequestMapping(method = RequestMethod.GET, value="/{id}")
+    ResponseEntity<Product> readOneProduct(@PathVariable int id){
+        logger.info("searching by product id");
+
+        Optional<Product> opt = productRepository.findById(id);
+
+        return opt.map(product -> ResponseEntity.ok(product)).orElse(ResponseEntity.notFound().build());
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Product> addNewProduct(@RequestBody @Valid Product newProduct){
+
+        Product result =productRepository.save(newProduct);
+
+        logger.info("saved new Product");
+        return ResponseEntity.created(URI.create("/" + result.getId())).body(newProduct);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<?>editProduct(@PathVariable int id, @RequestBody @Valid Product productToEdit){
+
+        logger.info("updated product id: " + id);
+
+        if(!productRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+
+        productToEdit.setId(id);
+
+        Nutrients nutrients = productToEdit.getNutrients();
+        nutrients.setProduct(productToEdit);
+
+        nutrientsRepository.save(nutrients);
+        productRepository.save(productToEdit);
+
+        return ResponseEntity.noContent().build();
+    }
 }

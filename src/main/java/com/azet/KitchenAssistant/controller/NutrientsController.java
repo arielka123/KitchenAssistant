@@ -25,7 +25,7 @@ class NutrientsController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<Nutrients>> readAllProducts(Pageable page){
+    ResponseEntity<List<Nutrients>> readAllNutrients(Pageable page){
 
         logger.info("custom pageable for all nutrients");
         return ResponseEntity.ok(nutrientsRepository.findAll(page).getContent());
