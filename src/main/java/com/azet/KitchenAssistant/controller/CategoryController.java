@@ -7,13 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/categories")
@@ -32,6 +30,14 @@ class CategoryController {
         return ResponseEntity.ok(categoryRepository.findAll());
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Category> readOneCategory(@PathVariable int id){
+        logger.info("selected category is presented");
+        Optional<Category> opt = categoryRepository.findById(id);
+
+        return opt.map(category -> ResponseEntity.ok(category)).orElse(ResponseEntity.notFound().build());
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Category> addNewCategory(@RequestBody @Valid Category newCategory){
 
@@ -39,5 +45,19 @@ class CategoryController {
         logger.info("saved new category");
 
         return ResponseEntity.created(URI.create("/"+result.getId())).body(newCategory);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<?> editCategory(@PathVariable int id ,@RequestBody @Valid Category updatedCategory){
+        logger.info("updated category id: " + id);
+
+        if(!categoryRepository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+
+        updatedCategory.setId(id);
+        categoryRepository.save(updatedCategory);
+
+        return ResponseEntity.noContent().build();
     }
 }
