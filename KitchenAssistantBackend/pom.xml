@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.azet</groupId>
-	<artifactId>KitchenAssistant</artifactId>
+	<artifactId>KitchenAssistantBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Kitchen-Assistant</name>
 	<description>Assistant-in-the-kitchen</description>
