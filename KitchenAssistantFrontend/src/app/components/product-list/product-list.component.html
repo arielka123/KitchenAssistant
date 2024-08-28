@@ -1,5 +1,6 @@
 <p>product-list works!</p>
 
-<p *ngFor="let tempProduct of products">
+<div *ngFor="let tempProduct of products">
     Product: {{tempProduct.name}}; kod kreskowy:{{tempProduct.codeBar}}
-</p>
+    category: {{tempProduct.category.name}}
+</div>
