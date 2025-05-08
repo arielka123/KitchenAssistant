@@ -1,13 +1,30 @@
-<div class="container text-center">
-    <h1 class="my-3">Produkty</h1>
-    <div class=" row">
-        <div class="col-4 mx-3 my-3">
-                <app-product-list></app-product-list>
-            </div>
+<div class="page-wrapper text-center">
 
-            <div class = "col-4 mx-3 my-3">
-                <app-category-list></app-category-list>
-            </div>
+    <header>
+        <div class="top-header">
+            <!-- Logo -->
+           
+            <!-- Navigation Menu -->
+            <nav> 
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt="" height="55px"/>
+                </div>
+                <ul class="top-menu-list">
+                    <li class="top-menu-item">
+                        <a href="#">Spiżarnia </a>
+                    </li>
+                    <li class="top-menu-item">
+                        <a href="#">Lista Zakupów </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- main content-->
+        <app-category-list></app-category-list>
+
     </div>
 </div>
 

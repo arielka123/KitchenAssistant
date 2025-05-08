@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+ul.top-menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1565C0;
+  }
+
+li.top-menu-item{
+    float:left
+}
+
+li.top-menu-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li.top-menu-item a:hover {
+    background-color: #0D47A1;
+  }

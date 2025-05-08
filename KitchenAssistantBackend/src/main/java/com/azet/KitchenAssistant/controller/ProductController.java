@@ -95,4 +95,6 @@ class ProductController {
 
         return ResponseEntity.noContent().build();
     }
+
+    //#TODO delete selected products
 }
