@@ -1,5 +1,7 @@
-<p>category-list works!</p>
+<div class="sidenav">
+    <div *ngFor="let tempCategory of categories">
+        <a href="#">{{tempCategory.name}}</a>
+    </div>
+</div>
 
-<p *ngFor="let tempCategory of categories">
-    nazwa kategorii: {{tempCategory.name}}; opis:{{tempCategory.description}}
-</p>
+

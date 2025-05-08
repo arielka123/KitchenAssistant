@@ -1,0 +1,28 @@
+/* .sidenav {
+    height: 100%;
+    width: 20%;
+    position: sticky;
+    top:0;
+    left: 1;
+    background-color: #dadada;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 0.85em;
+    color: #a7a6a6;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #5d5d5d;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } */

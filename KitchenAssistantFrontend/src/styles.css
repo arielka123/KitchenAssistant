@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+a{
+  text-decoration: none;
+}
 
 ul.top-menu-list {
-    list-style-type: none;
+  list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -17,9 +20,56 @@ li.top-menu-item a {
     color: white;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
   }
 
   li.top-menu-item a:hover {
     background-color: #0D47A1;
   }
+
+.contentProduct{
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 16px 10px;
+  }
+
+/* TODO sticky sidebar*/
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+
+  background-color: #dadada;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 0.85em;
+  color: #a7a6a6;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #5d5d5d;
+}
+
+.productItems{
+  display: inline-block;
+  position: relative;
+}
+
+.productItems p{
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  /* background: rgb(0, 0, 0); Fallback color */
+  background: rgba(86, 86, 86, 0.3); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 96%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

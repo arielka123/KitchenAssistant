@@ -1,6 +1,12 @@
-<p>product-list works!</p>
+<div class="wraper">
+    <app-category-list></app-category-list>
 
-<div *ngFor="let tempProduct of products">
-    Product: {{tempProduct.name}}; kod kreskowy:{{tempProduct.codeBar}}
-    category: {{tempProduct.category.name}}
+    <div class="contentProduct">
+        <div *ngFor="let tempProduct of products" class="productItems">
+            <img src="../assets/images/placeholder.png" alt="">
+            <p>{{tempProduct.name}}</p>
+            
+            
+        </div>
+    </div>
 </div>
