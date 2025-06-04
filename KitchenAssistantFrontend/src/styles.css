@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+.topHeader{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color:white;
+}
+
+.logo{
+  /* text-align: center; */
+  left:0;
+  width: 20%;
+  display: inline-block;
+
+}
+
+.active-link {
+  font-weight: bold;
+}
+
+ul.top-menu-list {
+  /* display: inline-block; */
+  float: right;
+  left:300px;
+  width: 80%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1565C0;
+  }
+
+li.top-menu-item{
+    /* float:left; */
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+li.top-menu-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li.top-menu-item a:hover {
+    background-color: #0D47A1;
+  }
+
+
+.sidenav {
+  height: 100%;
+  width: 20%;
+  text-align: start;
+  /* background-color: #eeeaea; */
+  background-image: linear-gradient(to right, #eeeaea , white);  
+  position: fixed;
+  z-index: 1;
+  top: 80px;
+  /* padding-top: 20px; */
+  padding-bottom: 150px;
+  overflow-y: auto;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 0.8em;
+  color: #939292;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #5d5d5d;
+}
+
+.contentProduct{
+  margin-left: 160px; /* Same as the width of the sidebar */
+  /* padding: 16px 10px; */
+  }
+
+.contentProduct{
+  padding-top: 80px;
+  width: 80%;
+  float: right;
+  padding-bottom: 100px;
+}
+
+.productItem{
+  display: inline-block;
+  position: relative;
+}
+
+.productItem p{
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  /* background: rgb(0, 0, 0); Fallback color */
+  background: rgba(86, 86, 86, 0.3); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 96%; /* Full width */
+  padding: 20px; /* Some padding */
+  font-size: 0.7em;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

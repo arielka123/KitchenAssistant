@@ -16,8 +16,9 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/api/products")
 class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
@@ -34,7 +35,7 @@ class ProductController {
 
         logger.info("custom pageable for all products");
         return ResponseEntity.ok(productRepository.findAll(page).getContent());
-        //http://localhost:8080/products?page=0&size=10
+        //http://localhost:8080/api/products?page=0&size=10
     }
 
     @RequestMapping(method = RequestMethod.GET, params="categoryId" ,produces = MediaType.APPLICATION_JSON_VALUE)
@@ -45,7 +46,7 @@ class ProductController {
         //TODO info when id not exist
 
         return ResponseEntity.ok(productRepository.findByCategoryId(id, page).getContent());
-        //http://localhost:8080/products?categoryId=5&page=0&size=10
+        //http://localhost:8080/api/products?categoryId=5&page=0&size=10
     }
 
     @RequestMapping(method = RequestMethod.GET, params = "search", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -55,7 +56,7 @@ class ProductController {
         //TODO info when text is not present anywhere
 
         return ResponseEntity.ok(productRepository.findByNameContaining(textToSearch, page).getContent());
-        //http://localhost:8080/products?search=ml&page=0&size=10
+        //http://localhost:8080/api/products?search=ml&page=0&size=10
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/{id}")
@@ -94,4 +95,6 @@ class ProductController {
 
         return ResponseEntity.noContent().build();
     }
+
+    //#TODO delete selected products
 }
