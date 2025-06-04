@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping(value = "/categories")
+@RequestMapping(value = "/api/categories")
 class CategoryController {
 
     Logger logger = LoggerFactory.getLogger(CategoryController.class);

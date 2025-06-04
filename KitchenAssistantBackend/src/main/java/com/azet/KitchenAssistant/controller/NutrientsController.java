@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
-@RequestMapping(value = "/nutrients")
+@RequestMapping(value = "/api/nutrients")
 class NutrientsController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
