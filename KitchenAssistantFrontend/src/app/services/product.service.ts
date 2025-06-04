@@ -8,13 +8,20 @@ import { Product } from '../common/product';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/products'
+  private baseUrl = 'http://localhost:8080/api/products'
 
   constructor(private httpClient: HttpClient) {}
 
-    getProductList(): Observable<Product[]>{
-      return this.httpClient.get<any>(this.baseUrl);
+  //   getProductList2(): Observable<Product[]>{
+  //     return this.httpClient.get<any>(this.baseUrl);
+    
+  // }
+
+      getProductList(theCategoryId: number): Observable<Product[]>{
+
+      const searchUrl = `${this.baseUrl}?categoryId=${theCategoryId}`;
+
+      return this.httpClient.get<any>(searchUrl);
   }
 }
-
 

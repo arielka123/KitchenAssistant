@@ -9,7 +9,7 @@ import { Category } from '../common/category';
 export class CategoryService {
 
 
-  private baseUrl = 'http://localhost:8080/categories'
+  private baseUrl = 'http://localhost:8080/api/categories'
 
   constructor(private httpClient: HttpClient) { }
 

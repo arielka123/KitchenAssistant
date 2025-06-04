@@ -17,7 +17,7 @@
                         <a routerLink="products" routerLinkActive="active-link">Spiżarnia </a>
                     </li>
                     <li class="top-menu-item">
-                        <a routerLink="shoppingList" routerLinkActive="active-link">Lista Zakupów </a>
+                        <a routerLink="##" routerLinkActive="active-link">Lista Zakupów </a>
                     </li>
                 </ul>
             </nav>
@@ -27,8 +27,9 @@
     <div class="page-container">
         <!-- main content-->
         <app-category-list></app-category-list>
-
-       <!-- <app-product-list></app-product-list>-->
+        <router-outlet></router-outlet>
+        
+        <!-- <app-product-list></app-product-list>  -->
     </div>
 </div>
 
