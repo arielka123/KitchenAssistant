@@ -7,14 +7,17 @@
             <nav> 
                 <!-- Logo -->
                 <div class="logo">
-                    <img src="../assets/images/logo.png" alt="" height="55px"/>
+                    <a href="#">
+                        <img src="../assets/images/logo.png" alt="KuchennyAsystent" height="55px"/>
+                    </a>
+                    
                 </div>
                 <ul class="top-menu-list">
                     <li class="top-menu-item">
-                        <a href="#">Spiżarnia </a>
+                        <a routerLink="products" routerLinkActive="active-link">Spiżarnia </a>
                     </li>
                     <li class="top-menu-item">
-                        <a href="#">Lista Zakupów </a>
+                        <a routerLink="shoppingList" routerLinkActive="active-link">Lista Zakupów </a>
                     </li>
                 </ul>
             </nav>
@@ -23,9 +26,9 @@
 
     <div class="page-container">
         <!-- main content-->
+        <app-category-list></app-category-list>
 
-        <app-product-list></app-product-list>
-
+       <!-- <app-product-list></app-product-list>-->
     </div>
 </div>
 

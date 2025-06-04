@@ -1,6 +1,6 @@
 <div class="sidenav">
     <div *ngFor="let tempCategory of categories">
-        <a href="#">{{tempCategory.name}}</a>
+        <a routerLink="/category/{{tempCategory.id}}" routerLinkActive="active-link">{{tempCategory.name}}</a>
     </div>
 </div>
 
