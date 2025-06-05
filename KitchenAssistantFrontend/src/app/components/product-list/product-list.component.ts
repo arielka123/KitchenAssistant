@@ -31,20 +31,28 @@ export class ProductListComponent implements OnInit {
     if(hasCategoryId){
       //get the 'id' param
       this.currentCutegoryId =+ this.route.snapshot.paramMap.get('id')!;
+
+      //get the products form the given category
+      this.productService.getProductListByCategory(this.currentCutegoryId).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+
     }
     else{
       //default value
-      this.currentCutegoryId = 1;
+      // this.currentCutegoryId = 1;
+
+      this.productService.getAllProductList().subscribe(
+        data => {
+          this.products = data;
+        }
+      )
+
+
+      
     }
 
-    //get the products form the given category
-    this.productService.getProductList(this.currentCutegoryId).subscribe(
-      data => {
-        this.products = data;
-
-        console.log(this.products);
-
-      }
-    )
   }
 }

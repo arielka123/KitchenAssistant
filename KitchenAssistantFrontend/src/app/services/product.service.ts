@@ -12,16 +12,16 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {}
 
-  //   getProductList2(): Observable<Product[]>{
-  //     return this.httpClient.get<any>(this.baseUrl);
-    
-  // }
+  getProductListByCategory(theCategoryId: number): Observable<Product[]>{
 
-      getProductList(theCategoryId: number): Observable<Product[]>{
+  const searchUrl = `${this.baseUrl}?categoryId=${theCategoryId}`;
 
-      const searchUrl = `${this.baseUrl}?categoryId=${theCategoryId}`;
+    return this.httpClient.get<any>(searchUrl);
+  }
 
-      return this.httpClient.get<any>(searchUrl);
+  getAllProductList(): Observable<Product[]>{
+
+    return this.httpClient.get<any>(this.baseUrl);
   }
 }
 
