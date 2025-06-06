@@ -4,17 +4,19 @@
   z-index: 1;
   top: 0;
   width: 100%;
+  background-color: white;
+
 }
 
 .logo{
   left:0;
-  width: 20%;
-  display: inline-block;
-  text-align:start;
+  width: auto;
+  display: block;
+  text-align:center;
 }
 
 .logo img{
-  width: 90%;
+  width: 15%;
 }
 .active-link {
   font-weight: bold;
@@ -24,12 +26,13 @@ ul.top-menu-list {
   /* display: inline-block; */
   float: right;
   left:10vw;
-  width: 75%;
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #1565C0;
+  text-align: center;
   }
 
 li.top-menu-item{
@@ -60,7 +63,7 @@ li.top-menu-item a {
   background-image: linear-gradient(to right, #eeeaea , white);  
   position: fixed;
   z-index: 1;
-  top: 80px;
+  top: 120px;
   /* padding-top: 20px; */
   padding-bottom: 150px;
   overflow-y: auto;
@@ -84,7 +87,7 @@ li.top-menu-item a {
   }
 
 .contentProduct{
-  padding-top: 80px;
+  padding-top: 120px;
   width: 75%;
   float: right;
   padding-bottom: 100px;
