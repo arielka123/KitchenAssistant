@@ -4,30 +4,27 @@
   z-index: 1;
   top: 0;
   width: 100%;
-  background-color:white;
 }
 
 .logo{
-  /* text-align: center; */
   left:0;
   width: 20%;
   display: inline-block;
-  text-align: center;
+  text-align:start;
 }
 
 .logo img{
-width: 70%;
+  width: 90%;
 }
-
 .active-link {
   font-weight: bold;
 }
 
-.top-menu-list {
+ul.top-menu-list {
   /* display: inline-block; */
   float: right;
-  width: 80%;
-  height: 10%;
+  left:10vw;
+  width: 75%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -38,8 +35,7 @@ width: 70%;
 li.top-menu-item{
     /* float:left; */
     display: inline-block;
-    width: auto;
-    height: auto;
+    width: 150px;
     text-align: left;
 }
 
@@ -58,7 +54,7 @@ li.top-menu-item a {
 
 .sidenav {
   height: 100%;
-  max-width: 30%;
+  width: 25%;
   text-align: start;
   /* background-color: #eeeaea; */
   background-image: linear-gradient(to right, #eeeaea , white);  
@@ -83,13 +79,16 @@ li.top-menu-item a {
 }
 
 .contentProduct{
+  margin-left: 160px; /* Same as the width of the sidebar */
+  /* padding: 16px 10px; */
+  }
+
+.contentProduct{
   padding-top: 80px;
   width: 75%;
   float: right;
   padding-bottom: 100px;
   text-align: center;
-
-   /* margin-left: 0.5em; Same as the width of the sidebar */
 }
 
 .productItem{
@@ -108,6 +107,12 @@ li.top-menu-item a {
   font-size: 0.7em;
 
 }
+
+.search-form{
+  max-width: max-content;
+  margin-bottom: 10px;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
