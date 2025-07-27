@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   currentCutegoryId: number = 1;
   products: Product[] = [];
+  searchMode: boolean = false;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
@@ -25,26 +26,57 @@ export class ProductListComponent implements OnInit {
 
   listProducts() {
 
-    //check if "id" parameter is available
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    if(this.searchMode){
+      this.handleSearchProducts();
+    }
+    else{
+      this.handleListProducts();
+    }
+
+
+  }
+
+handleListProducts(){
+      //check if "id" parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if(hasCategoryId){
       //get the 'id' param
       this.currentCutegoryId =+ this.route.snapshot.paramMap.get('id')!;
+
+      //get the products form the given category
+      this.productService.getProductListByCategory(this.currentCutegoryId).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+
     }
     else{
       //default value
-      this.currentCutegoryId = 1;
+      // this.currentCutegoryId = 1;
+
+      this.productService.getAllProductList().subscribe(
+        data => {
+          this.products = data;
+        }
+      )
     }
+}
 
-    //get the products form the given category
-    this.productService.getProductList(this.currentCutegoryId).subscribe(
-      data => {
-        this.products = data;
+handleSearchProducts(){
+  const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
 
-        console.log(this.products);
+  this.productService.searchProducts(theKeyword).subscribe(
+        data => {
+          this.products = data;
+        }
+      );
+}
 
-      }
-    )
-  }
+
+
+
 }

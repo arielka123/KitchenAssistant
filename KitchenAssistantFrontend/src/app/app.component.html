@@ -2,31 +2,30 @@
 
     <header>
         <div class="topHeader">
-           
             <!-- Navigation Menu -->
             <nav> 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="#">
-                        <img src="../assets/images/logo.png" alt="KuchennyAsystent" height="55px"/>
+                    <a routerLink="/products">
+                        <img src="../assets/images/logo.png" alt="KuchennyAsystent" />
                     </a>
                     
                 </div>
                 <ul class="top-menu-list">
-                    <li class="top-menu-item">
+                    <li class="top-menu-item" >
                         <a routerLink="products" routerLinkActive="active-link">Spiżarnia </a>
                     </li>
                     <li class="top-menu-item">
                         <a routerLink="##" routerLinkActive="active-link">Lista Zakupów </a>
                     </li>
-                </ul>
+                </ul> 
             </nav>
         </div>
     </header>
 
     <div class="page-container">
         <!-- main content-->
-        <app-category-list></app-category-list>
+       <!-- <app-category-list></app-category-list>-->
         <router-outlet></router-outlet>
         
         <!-- <app-product-list></app-product-list>  -->
