@@ -3,8 +3,10 @@
 
     <div class="contentProduct">
         <div *ngFor="let tempProduct of products" class="productItem">
-            <img src="../assets/images/placeholder.png" alt="">
-            <p>{{tempProduct.name}}</p>
+            <a routerLink="/products/{{ tempProduct.id }}">
+                <img src="../assets/images/placeholder.png" alt="">
+                <p>{{tempProduct.name}}</p>
+            </a>
         </div>
     </div>
 </div>
