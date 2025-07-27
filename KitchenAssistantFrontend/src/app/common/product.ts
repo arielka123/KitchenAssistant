@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { Nutrients } from "./nutrients";
 
 export class Product {
     constructor(
@@ -6,7 +7,8 @@ export class Product {
                 public name: string,
                 public image: string,
                 public codeBar: string,
-                public category: Category
+                public category: Category,
+                public nutrients: Nutrients
     ){
 
     }

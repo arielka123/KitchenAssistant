@@ -2,7 +2,24 @@
     <app-category-list></app-category-list>
 
     <div class="container-fluid">
-        <p class="contentProduct">{{ product.name }}</p>
-    </div>
+        <div class="contentProduct">
 
+            <h3> {{product.name}} </h3>
+            <img style="height: 100px; width: auto" src="../assets/image/placeholder.png" alt="">            
+
+            <h5> Kategoria: {{ product.category.name}} - {{product.category.description}} </h5>
+            <h5> Kod kreskowy: {{ product.codeBar}} </h5>
+
+            <hr>
+
+            <h5>Makrosy </h5>
+            <h6>energia: {{ product.nutrients.energy}}</h6>
+            <h6>weglowodany: {{ product.nutrients.carbohydrates}}</h6>
+            <h6>tłuszcze: {{ product.nutrients.fat}}</h6>
+            <h6>tłuszcze nasycone: {{ product.nutrients.saturatedFat}}</h6>
+            <h6>cukry: {{ product.nutrients.sugars}}</h6>
+            <h6>błonnik: {{ product.nutrients.fiber}}</h6>
+            <h6>ocena wartości odżywczej: {{ product.nutrients.nutritionGrades}}</h6>
+        </div>
+    </div>
 </div>
