@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="nutrients")
+@Table(name="nutrient")
 @Getter
 @Setter
-public class Nutrients {
+public class Nutrient {
 
     //data for 100g of products
 
@@ -26,24 +26,23 @@ public class Nutrients {
     private double saturatedFat;
 
     @Column(columnDefinition="Decimal(4,2)")
-    private double carbohydrates;
+    private double carbohydrate;
 
     @Column(columnDefinition="Decimal(4,2)")
-    private double sugars;
+    private double sugar;
 
     @Column(columnDefinition="Decimal(4,2)")
-    private double proteins;
+    private double protein;
 
     @Column(columnDefinition="Decimal(4,2)")
     private double fiber;
 
-    private String nutritionGrades;
+    private String nutritionGrade;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="product_id")
     @JsonIgnore
     private Product product;
-
 }
 
 

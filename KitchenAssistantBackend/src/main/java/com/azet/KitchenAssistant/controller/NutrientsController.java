@@ -1,6 +1,6 @@
 package com.azet.KitchenAssistant.controller;
 
-import com.azet.KitchenAssistant.Entity.Nutrients;
+import com.azet.KitchenAssistant.Entity.Nutrient;
 import com.azet.KitchenAssistant.Entity.Product;
 import com.azet.KitchenAssistant.dao.NutrientsRepository;
 import jakarta.validation.Valid;
@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +28,7 @@ class NutrientsController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<Nutrients>> readAllNutrients(Pageable page){
+    ResponseEntity<List<Nutrient>> readAllNutrients(Pageable page){
 
         logger.info("custom pageable for all nutrients");
         return ResponseEntity.ok(nutrientsRepository.findAll(page).getContent());
@@ -37,16 +36,16 @@ class NutrientsController {
     }
 
     @RequestMapping(method = RequestMethod.GET, params="productId", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Nutrients> readNutrientsForProduct(@RequestParam("productId") int productId){
+    ResponseEntity<Nutrient> readNutrientsForProduct(@RequestParam("productId") int productId){
         logger.info("read nutrients for product");
 
-        Optional<Nutrients> opt = nutrientsRepository.findByProduct_Id(productId);
+        Optional<Nutrient> opt = nutrientsRepository.findByProduct_Id(productId);
 
         return opt.map(nutrients -> ResponseEntity.ok(nutrients)).orElse(ResponseEntity.notFound().build());
     }
 
     @RequestMapping(method = RequestMethod.PUT, value="/{id}",params = "productId", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?>editNutrients(@PathVariable int id, @RequestParam("productId") int productId, @RequestBody @Valid Nutrients nutrientsToEdit){
+    ResponseEntity<?>editNutrients(@PathVariable int id, @RequestParam("productId") int productId, @RequestBody @Valid Nutrient nutrientsToEdit){
 
         logger.info("updated nutrients");
 
@@ -54,7 +53,7 @@ class NutrientsController {
             return ResponseEntity.notFound().build();
         }
 
-        Optional<Nutrients> opt = nutrientsRepository.findByProduct_Id(productId);
+        Optional<Nutrient> opt = nutrientsRepository.findByProduct_Id(productId);
         Product product = opt.map(res -> res.getProduct()).orElseThrow();
 
 
