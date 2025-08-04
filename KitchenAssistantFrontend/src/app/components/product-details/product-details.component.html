@@ -13,13 +13,18 @@
             <hr>
 
             <h5>Makrosy </h5>
-            <h6>energia: {{ product.nutrients.energy}}</h6>
-            <h6>weglowodany: {{ product.nutrients.carbohydrates}}</h6>
-            <h6>tłuszcze: {{ product.nutrients.fat}}</h6>
-            <h6>tłuszcze nasycone: {{ product.nutrients.saturatedFat}}</h6>
-            <h6>cukry: {{ product.nutrients.sugars}}</h6>
-            <h6>błonnik: {{ product.nutrients.fiber}}</h6>
-            <h6>ocena wartości odżywczej: {{ product.nutrients.nutritionGrades}}</h6>
+            <h6>energia: {{ product.nutrients.energy}}kcal</h6>
+            <h6>weglowodany: {{ product.nutrients.carbohydrate}}g</h6>
+            <h6>&nbsp;&nbsp;cukry: {{product.nutrients.sugar}}g</h6>
+            <h6>tłuszcze: {{ product.nutrients.fat}}g</h6>
+            <h6>&nbsp;&nbsp;tłuszcze nasycone: {{ product.nutrients.saturatedFat}}g</h6>
+            <h6>błonnik: {{ product.nutrients.fiber}}g</h6>
+            <h6>ocena wartości odżywczej: {{ product.nutrients.nutritionGrade}}</h6>
         </div>
     </div>
 </div>
+
+
+<!--TODO dodaj jednostki do makrosów  -->
+<!-- dodaj ikone koszyka zeby dodac do listy zakupów-->
+<!-- mozliwosc edycji danych -->

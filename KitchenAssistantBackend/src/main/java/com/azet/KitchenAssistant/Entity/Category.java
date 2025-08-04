@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "category")
 @Getter
 @Setter
 public class Category {

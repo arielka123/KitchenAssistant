@@ -1,6 +1,6 @@
 package com.azet.KitchenAssistant.controller;
 
-import com.azet.KitchenAssistant.Entity.Nutrients;
+import com.azet.KitchenAssistant.Entity.Nutrient;
 import com.azet.KitchenAssistant.Entity.Product;
 import com.azet.KitchenAssistant.dao.NutrientsRepository;
 import com.azet.KitchenAssistant.dao.ProductRepository;
@@ -72,7 +72,7 @@ class ProductController {
     ResponseEntity<Product> addNewProduct(@RequestBody @Valid Product newProduct){
 
         Product result =productRepository.save(newProduct);
-        Nutrients nutrients = newProduct.getNutrients();
+        Nutrient nutrients = newProduct.getNutrients();
         nutrients.setProduct(result);
 
         nutrientsRepository.save(nutrients);

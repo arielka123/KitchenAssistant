@@ -1,13 +1,13 @@
-export class Nutrients {
+export class Nutrient {
     
     constructor(public id: number,
                 public energy: string,
                 public fat: string,
                 public saturatedFat: string,
-                public carbohydrates: string,
-                public sugars: string,
-                public proteins: string,
+                public carbohydrate: string,
+                public sugar: string,
+                public protein: string,
                 public fiber: string,
-                public nutritionGrades: string,
+                public nutritionGrade: string,
     ){}
 }

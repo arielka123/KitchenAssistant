@@ -89,6 +89,19 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<configuration>
+					<url>jdbc:mysql://localhost:3306/?user=kitchenAssistant</url>
+					<user>kitchenAssistant</user>
+					<password>kitchenAssistant</password>
+					<locations>
+						<location>classpath:db/migration</location>
+					</locations>
+					<defaultSchema>schema</defaultSchema>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
