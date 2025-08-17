@@ -12,8 +12,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
 
   currentCutegoryId: number = 1;
+  previousCategoryId: number = 1;
   products: Product[] = [];
   searchMode: boolean = false;
+  
+  thePageNumber: number = 1;
+  thePageSize: number = 10;
+  theTotalElements: number = 0;
+
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) { }
@@ -58,11 +64,38 @@ handleListProducts(){
       //default value
       // this.currentCutegoryId = 1;
 
-      this.productService.getAllProductList().subscribe(
-        data => {
-          this.products = data;
-        }
-      )
+      //check if we have current category than previous
+
+
+      //if diffrent categoryId then set thePagenumber back to 1
+      if(this.previousCategoryId != this.currentCutegoryId){
+        this.thePageNumber = 1;
+      }
+      
+      this.previousCategoryId = this.currentCutegoryId;
+
+      console.log(`currentCategoryId=${this.currentCutegoryId}, thePageNumber=${this.thePageNumber},thePageSize=${this.thePageSize} `)
+
+      //get product for the given category od
+
+      // this.productService.getProductList().subscribe(
+      //   data => {
+      //     this.products = data;
+      //   }
+      // )
+
+      this.productService.getProductListPagination(this.thePageNumber-1, 
+                                                  this.thePageSize, 
+                                                  this.currentCutegoryId)
+                                                  .subscribe(
+                                                    data =>{
+                                                      this.products = data._emebeded.products;
+                                                      this.thePageNumber = data.page.number + 1;
+                                                      this.thePageSize = data.page.size;
+                                                      this.theTotalElements = data.page.totalElements;
+                                                    }
+                                                  );
+
     }
 }
 
@@ -75,8 +108,5 @@ handleSearchProducts(){
         }
       );
 }
-
-
-
 
 }
